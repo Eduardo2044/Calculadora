@@ -38,4 +38,5 @@ public class PanelBotones extends JPanel {
     public JButton[] getgrupoBotones() {
         return grupoBotones;
     }
+
 }
