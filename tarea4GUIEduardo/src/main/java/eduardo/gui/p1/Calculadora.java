@@ -16,6 +16,5 @@ public class Calculadora {
     	frame.pack();
    	 
 	}
-
     
 }

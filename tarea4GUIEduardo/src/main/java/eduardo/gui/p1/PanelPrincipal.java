@@ -42,9 +42,71 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
     }
 
+    int num1 = 0;
+    int num2 = 0;
+    String operador = "";
+
     @Override
-    public void actionPerformed(ActionEvent e) {
-        
+    public void actionPerformed(ActionEvent ae) {
+        // Se obtiene el objeto que desencadena el evento
+        Object o = ae.getSource();
+        if (((JButton) o).getText().equals("1") || ((JButton) o).getText().equals("2") || ((JButton) o).getText().equals("3")
+                || ((JButton) o).getText().equals("4") || ((JButton) o).getText().equals("5") || ((JButton) o).getText().equals("6")
+                || ((JButton) o).getText().equals("7") || ((JButton) o).getText().equals("8") || ((JButton) o).getText().equals("9")) {
+            this.areaTexto.setText(this.areaTexto.getText() + ((JButton) o).getText());
+        }
+
+        if (((JButton) o).getText().equals("+")) {
+            System.out.println("Suma");
+            this.num1 = Integer.parseInt(this.areaTexto.getText());
+            operador = "+";
+            this.areaTexto.setText("");
+        }
+
+        if (((JButton) o).getText().equals("-")) {
+            System.out.println("Resta");
+            this.num1 = Integer.parseInt(this.areaTexto.getText());
+            operador = "-";
+            this.areaTexto.setText("");
+        }
+
+        if (((JButton) o).getText().equals("*")) {
+            System.out.println("Multiplicación");
+            this.num1 = Integer.parseInt(this.areaTexto.getText());
+            operador = "*";
+            this.areaTexto.setText("");
+        }
+
+        if (((JButton) o).getText().equals("/")) {
+            System.out.println("División");
+            this.num1 = Integer.parseInt(this.areaTexto.getText());
+            operador = "/";
+            this.areaTexto.setText("");
+        }
+
+        if (((JButton) o).getText().equals("=")) {
+            System.out.println("Igual");
+            this.num2 = Integer.parseInt(this.areaTexto.getText());
+
+            switch (operador) {
+                case "+":
+                    this.areaTexto.setText(Integer.toString(this.num1 + this.num2));
+                    break;
+                case "-":
+                    this.areaTexto.setText(Integer.toString(this.num1 - this.num2));
+                    break;
+                case "*":
+                    this.areaTexto.setText(Integer.toString(this.num1 * this.num2));
+                    break;
+                case "/":
+                    this.areaTexto.setText(Integer.toString(this.num1 / this.num2));
+                    break;
+            }
+        }
+        if (((JButton) o).getText().equals("C")) {
+            areaTexto.setText("");
+        }
+
     }
 
 }
