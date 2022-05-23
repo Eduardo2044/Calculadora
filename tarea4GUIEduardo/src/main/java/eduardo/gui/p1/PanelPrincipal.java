@@ -10,18 +10,16 @@ import javax.swing.JTextArea;
 
 public class PanelPrincipal extends JPanel implements ActionListener {
 
-    // Atributos de la clase (privados)
+    // Atributos
     private PanelBotones botonera;
     private JTextArea areaTexto;
-    private int tipoOperacion;
 
     // Constructor
     public PanelPrincipal() {
         initComponents();
-        tipoOperacion = -1; // No hay operaciones en la calculadora
     }
 
-    // Se inicializan los componentes gráficos y se colocan en el panel
+    // Se inicializan los componentes
     private void initComponents() {
         // Creamos el panel de botones
         botonera = new PanelBotones();
@@ -42,8 +40,8 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
     }
 
-    int num1 = 0;
-    int num2 = 0;
+    double num1 = 0;
+    double num2 = 0;
     String operador = "";
 
     @Override
@@ -58,48 +56,48 @@ public class PanelPrincipal extends JPanel implements ActionListener {
 
         if (((JButton) o).getText().equals("+")) {
             System.out.println("Suma");
-            this.num1 = Integer.parseInt(this.areaTexto.getText());
+            this.num1 = Double.parseDouble(this.areaTexto.getText());
             operador = "+";
             this.areaTexto.setText("");
         }
 
         if (((JButton) o).getText().equals("-")) {
             System.out.println("Resta");
-            this.num1 = Integer.parseInt(this.areaTexto.getText());
+            this.num1 = Double.parseDouble(this.areaTexto.getText());
             operador = "-";
             this.areaTexto.setText("");
         }
 
         if (((JButton) o).getText().equals("*")) {
             System.out.println("Multiplicación");
-            this.num1 = Integer.parseInt(this.areaTexto.getText());
+            this.num1 = Double.parseDouble(this.areaTexto.getText());
             operador = "*";
             this.areaTexto.setText("");
         }
 
         if (((JButton) o).getText().equals("/")) {
             System.out.println("División");
-            this.num1 = Integer.parseInt(this.areaTexto.getText());
+            this.num1 = Double.parseDouble(this.areaTexto.getText());
             operador = "/";
             this.areaTexto.setText("");
         }
 
         if (((JButton) o).getText().equals("=")) {
             System.out.println("Igual");
-            this.num2 = Integer.parseInt(this.areaTexto.getText());
+            this.num2 = Double.parseDouble(this.areaTexto.getText());
 
             switch (operador) {
                 case "+":
-                    this.areaTexto.setText(Integer.toString(this.num1 + this.num2));
+                    this.areaTexto.setText(Double.toString(this.num1 + this.num2));
                     break;
                 case "-":
-                    this.areaTexto.setText(Integer.toString(this.num1 - this.num2));
+                    this.areaTexto.setText(Double.toString(this.num1 - this.num2));
                     break;
                 case "*":
-                    this.areaTexto.setText(Integer.toString(this.num1 * this.num2));
+                    this.areaTexto.setText(Double.toString(this.num1 * this.num2));
                     break;
                 case "/":
-                    this.areaTexto.setText(Integer.toString(this.num1 / this.num2));
+                    this.areaTexto.setText(Double.toString(this.num1 / this.num2));
                     break;
             }
         }
