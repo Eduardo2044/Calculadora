@@ -24,7 +24,7 @@ public class PanelPrincipal extends JPanel implements ActionListener {
         // Creamos el panel de botones
         botonera = new PanelBotones();
         // Creamos el área de texto
-        areaTexto = new JTextArea(10, 50);
+        areaTexto = new JTextArea(10, 22);
         areaTexto.setEditable(false);
         areaTexto.setBackground(Color.white);
 
@@ -58,33 +58,32 @@ public class PanelPrincipal extends JPanel implements ActionListener {
             System.out.println("Suma");
             this.num1 = Double.parseDouble(this.areaTexto.getText());
             operador = "+";
-            this.areaTexto.setText("");
+            this.areaTexto.setText(num1 + " + ");
         }
 
         if (((JButton) o).getText().equals("-")) {
             System.out.println("Resta");
             this.num1 = Double.parseDouble(this.areaTexto.getText());
             operador = "-";
-            this.areaTexto.setText("");
+            this.areaTexto.setText(num1 + " - ");
         }
 
         if (((JButton) o).getText().equals("*")) {
             System.out.println("Multiplicación");
             this.num1 = Double.parseDouble(this.areaTexto.getText());
             operador = "*";
-            this.areaTexto.setText("");
+            this.areaTexto.setText(num1 + " * ");
         }
 
         if (((JButton) o).getText().equals("/")) {
             System.out.println("División");
             this.num1 = Double.parseDouble(this.areaTexto.getText());
             operador = "/";
-            this.areaTexto.setText("");
+            this.areaTexto.setText(num1 + " / ");
         }
 
         if (((JButton) o).getText().equals("=")) {
-            System.out.println("Igual");
-            this.num2 = Double.parseDouble(this.areaTexto.getText());
+            this.num2 = Double.parseDouble(this.areaTexto.getText().substring(this.areaTexto.getText().length()-1));
 
             switch (operador) {
                 case "+":
